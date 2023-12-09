@@ -1,5 +1,7 @@
 // Declartion of array
 
+const res = require("express/lib/response")
+
 // 1. Using square brackets
 
 let fruits = ["Apple", "Mango", "Banana", "Kiwi"]
@@ -12,12 +14,12 @@ let emptyArray = new Array(5) // creates an array with 5 empty elements
 
 // 3. Using an array literal
 
-let colors = Array("Black", "Red", "White", "Blue", "Pink", "Orange")
+// let colors = Array("Black", "Red", "White", "Blue", "Pink", "Orange")
 
-for (let i = 0; i < colors.length; i++) {
-    // console.log(i, colors[i])
+// for (let i = 0; i < colors.length; i++) {
+//     // console.log(i, colors[i])
 
-}
+// }
 
 // Methods in Array
 
@@ -127,3 +129,74 @@ const person = {
 // Object.seal(person)
 // person.firstName = "hamid"
 // console.log(person)
+
+
+// Higher Order Function
+function calculatorFunction(operation, initialValue, numbers) {
+    let total = initialValue;
+    for (const number of numbers) {
+        total = operation(total, number)
+    }
+    return total;
+}
+
+function sum(n1, n2) {
+    return n1 + n2
+}
+
+function multiply(n1, n2) {
+    return n1 * n2;
+}
+
+let result = calculatorFunction(sum, 2, [2, 3, 4, 5])
+// console.log(result)
+
+
+// Date Object
+const currentDate = new Date('December 09, 2023, 12:00:00')
+const sameDate = new Date();
+sameDate.setTime(currentDate.getTime())
+// console.log(sameDate)
+
+// forEach, map, filter
+let colors = ["Black", "Red", "White", "Blue", "Pink", "Orange"]
+
+// Function Declaration
+
+colors.forEach(function (item, index, array) {/* Function Body */ })
+colors.map(function (item, index, array) {/* Function Body */ })
+colors.filter(function (item, index, array) {/* Function Body */ })
+
+
+// Arrow Function
+
+colors.forEach((item, index, array) => {/* Function Body */ })
+colors.map((item, index, array) => {/* Function Body */ })
+colors.filter((item, index, array) => {/* Function Body */ })
+
+
+// Call back Function
+
+// colors.forEach(/*callback*/)
+// colors.map(/*callback*/)
+// colors.filter(/*callback*/)
+
+// reduce
+
+// Syntax
+// array.reduce(/*function(accumulator, currentValue, currentIndex, array), initialValue*/)
+
+let array = [1, 2, 44, 67, 89]
+
+let resultArray = array.reduce((acc, curr) => acc + curr, 0);
+// console.log(resultArray)
+
+// every, find, sort
+
+// Syntax
+array.every(function(currentValue, currentIndex, array) {/* function body*/})
+
+// Syntax
+array.find(function (currentValue, currentIndex, array) {/*function body*/});
+
+array.sort()
