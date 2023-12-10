@@ -200,3 +200,26 @@ array.every(function(currentValue, currentIndex, array) {/* function body*/})
 array.find(function (currentValue, currentIndex, array) {/*function body*/});
 
 array.sort()
+
+// Fetching API ans Async & Await
+async function quotes() {
+    try {
+        const response = await fetch("https://type.fit/api/quotes")
+
+        if (!response.ok) {
+            throw new Error("Network response was not ok.")
+        }
+
+        const data = await response.json()
+
+        let randomNumber = Math.floor(Math.random() * data.length)
+
+        // console.log(data[randomNumber])
+        return data
+    } catch (error) {
+        console.error("There was a problem with the fetch operation: ", error)
+        throw error
+    }
+}
+
+quotes()
